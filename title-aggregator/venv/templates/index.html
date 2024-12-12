@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Verge Articles</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fff;
+            color: #000;
+            margin: 0;
+            padding: 20px;
+        }
+        a {
+            text-decoration: none;
+            color: blue;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .article {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Latest Articles from The Verge</h1>
+    {% for article in titles %}
+        <div class="article">
+            <h2><a href="{{ article.link }}" target="_blank">{{ article.title }}</a></h2>
+            <p><time datetime="{{ article.date.isoformat() }}">{{ article.date.strftime('%B %d, %Y %I:%M %p %Z') }}</time></p>
+        </div>
+    {% endfor %}
+</body>
+</html>
